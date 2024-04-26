@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import "./App.css";
 import MainPage from "./pages/main/MainPage";
 import AllTeams from "./pages/all-teams/AllTeams";
@@ -22,8 +22,8 @@ function App() {
           <Route path="/all-leagues" element={<AllLeagues />} />
           <Route path="/all-teams" element={<AllTeams />} />
           <Route path="/all-players" element={<AllPlayers />} />
-          <Route path="/league/:league_id" element={<League />} />
-          <Route path="/team/:team_id" element={<Team />} />
+          <Route path="/leagues/:leagueId" element={<League />} />
+          <Route path="/teams/:teamId" element={<Team />} />
         </Routes>
       </div>
     </>
