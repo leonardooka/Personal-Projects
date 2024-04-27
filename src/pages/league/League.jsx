@@ -7,6 +7,7 @@ import Standings from "../../components/standings/Standings";
 import Assists from "../../components/assists/assists";
 import Goals from "../../components/goals/goals";
 import Matches from "../../components/matches/Matches";
+import databaseUrl from "../../databaseUrl";
 
 export default function League() {
   const [leagueStandings, setLeagueStandings] = useState(null);
@@ -19,7 +20,7 @@ export default function League() {
 
   async function fetchLeague() {
     try {
-      const response = await fetch(`http://127.0.0.1:5001/leagues/${leagueId}`);
+      const response = await fetch(`${databaseUrl()}/leagues/${leagueId}`);
       const data = await response.json();
 
       if (data) {
@@ -35,7 +36,7 @@ export default function League() {
 
   async function fetchPlayers() {
     try {
-      const response = await fetch("http://127.0.0.1:5001/players");
+      const response = await fetch(`${databaseUrl()}/players`);
       const data = await response.json();
 
       if (data?.length) {

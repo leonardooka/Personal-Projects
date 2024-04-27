@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/header/header";
 import Button from "../../components/button/button";
 import { Link } from "react-router-dom";
+import databaseUrl from "../../databaseUrl";
 
 export default function AllTeams() {
   const [allTeams, setAllTeams] = useState([]);
   const [loading, setLoading] = useState(false);
 
+
   useEffect(() => {
     setLoading(true)
     const getAPI = () => {
-      const API = "http://127.0.0.1:5001/teams";
+      const API = `${databaseUrl()}/teams`;
       fetch(API)
         .then((res) => res.json())
         .then((data) => {

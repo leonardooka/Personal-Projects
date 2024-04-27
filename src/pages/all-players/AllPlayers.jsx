@@ -8,6 +8,9 @@ export default function AllPlayers() {
   const [allPlayers, setAllPlayers] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const onlineUrl = 'https://league-backend.onrender.com'
+  const localUrl = 'http://127.0.0.1:5001'
+
   function alphabeticalSort(list) {
     return list.sort((a, b) => {
       if (a.name < b.name) {
@@ -23,7 +26,7 @@ export default function AllPlayers() {
   async function fetchAllPlayers() {
     setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:5001/players");
+      const response = await fetch(`${onlineUrl}/players`);
       const data = await response.json();
 
       if (data?.length) {

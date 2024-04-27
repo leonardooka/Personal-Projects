@@ -1,6 +1,9 @@
 export function postDataToDatabase(data, path, method, callback) {
+  const onlineUrl = 'https://league-backend.onrender.com'
+  const localUrl = 'http://127.0.0.1:5001'
   const body = data;
-  fetch(`http://127.0.0.1:5001/${path}`, {
+  console.log(`${onlineUrl}/${path}`)
+  fetch(`${onlineUrl}/${path}`, {
     method: method,
     headers: {
       "Content-Type": "application/json",

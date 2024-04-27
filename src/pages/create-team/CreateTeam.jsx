@@ -3,6 +3,7 @@ import Header from "../../components/header/header";
 import Button from "../../components/button/button";
 import { Link } from "react-router-dom";
 import { postDataToDatabase } from "../../database";
+import databaseUrl from "../../databaseUrl";
 
 const nameRef = createRef();
 const logoRef = createRef();
@@ -35,8 +36,6 @@ export default function CreateTeam() {
         className={"mb-10"}
       />
       <form
-        method="POST"
-        action="http://127.0.0.1:5001/add-team"
         onSubmit={handleSubmit}
         className="w-3/5 m-auto flex flex-col items-center content-center p-4 bg-gradient-to-br bg-white border-4 border-violet-500 rounded-xl bg-opacity-70 h-3/4"
       >

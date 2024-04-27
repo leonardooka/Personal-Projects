@@ -4,6 +4,7 @@ import Button from "../../components/button/button";
 import { Link } from "react-router-dom";
 import { allRounds } from "../../matchmaking/matchmaking";
 import { postDataToDatabase } from "../../database";
+import databaseUrl from "../../databaseUrl";
 
 export default function CreateLeague() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +33,7 @@ export default function CreateLeague() {
   async function fetchTeamsData() {
     setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:5001/teams");
+      const response = await fetch(`${databaseUrl()}/teams`);
       const data = await response.json();
 
       if (data?.length) {
@@ -187,7 +188,7 @@ export default function CreateLeague() {
             ) : null}
             <div className="w-full rounded grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 auto-cols-min gap-2 p-3 mt-2 max-h-[360px] overflow-auto scroll-smooth">
               {!loading
-                ? selectedTeams.map((team, index) => (
+                ? selectedTeams?.map((team, index) => (
                     <div
                       key={index}
                       className="h-12 border p-1 bg-white bg-opacity-80 border-violet-600 rounded flex justify-between content-center items-center"

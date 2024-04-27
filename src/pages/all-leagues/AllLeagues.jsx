@@ -3,6 +3,7 @@ import Header from "../../components/header/header";
 import Button from "../../components/button/button";
 import { Link } from "react-router-dom";
 import {postDataToDatabase} from "../../database";
+import databaseUrl from "../../databaseUrl";
 
 export default function AllLeagues() {
   const [allLeagues, setAllLeagues] = useState(null);
@@ -11,7 +12,7 @@ export default function AllLeagues() {
   async function fetchLeagues () {
     setLoading(true)
     try {
-      const response = await fetch("http://127.0.0.1:5001")
+      const response = await fetch(databaseUrl())
       const data = await response.json()
 
       if (data?.length) {

@@ -71,7 +71,7 @@ export default function CreatePlayer() {
   useEffect(() => {
     console.log("--start useEffect team");
     setLoading(true);
-    const API = "http://127.0.0.1:5001/teams";
+    const API = `${databaseUrl()}/teams`;
     const getAPI = () => {
       fetch(API)
         .then((res) => res.json())
