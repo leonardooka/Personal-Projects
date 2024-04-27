@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { useParams } from "react-router-dom";
 import Header from "../../components/header/header";
+import databaseUrl from "../../databaseUrl";
 
 export default function Team() {
   const [team, setTeam] = useState(null);
@@ -25,7 +26,7 @@ export default function Team() {
     setLoading(true);
     async function fetchTeam() {
       try {
-        const response = await fetch("http://127.0.0.1:5001/teams");
+        const response = await fetch(`${databaseUrl()}/teams`);
         const data = await response.json();
         console.log(data);
 
