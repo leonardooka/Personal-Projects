@@ -45,7 +45,7 @@ export default function Team() {
     async function fetchPlayers() {
       try {
         console.log(team);
-        const response = await fetch("http://127.0.0.1:5001/players");
+        const response = await fetch(`${databaseUrl()}/players`);
         const data = await response.json();
 
         if (data?.length && team.name) {
